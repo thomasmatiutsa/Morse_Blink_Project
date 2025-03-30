@@ -123,6 +123,33 @@ void test_MorseTiming(void)
     TEST_ASSERT_EQUAL(expected_delay_duration, mock_delay_duration);
 }
 
+void test_MorseTimingMultipleWords(void)
+{
+    // Initialize mock function variables
+    mock_initialize();
+
+    // Translate "Hello World" to Morse code
+    char output[100] = {0};
+    encode_morse("Hello World", output, sizeof(output) - 1);
+
+    // Blink LED according to Morse code
+    morse_blink_led(output);
+
+    // Uncomment to see what the values are
+    // printf("mock_delay_called: %d\n", mock_delay_called);
+    // printf("mock_delay_duration: %d\n", mock_delay_duration);
+
+    // Expected values
+    int expected_delay_calls = 62;
+    int expected_delay_duration = 110;
+
+    // Assert the number of delay calls
+    TEST_ASSERT_EQUAL(expected_delay_calls, mock_delay_called);
+
+    // Assert the total duration of delays
+    TEST_ASSERT_EQUAL(expected_delay_duration, mock_delay_duration);
+}
+
 // BONUS: Add timing test for multiple words (i.e "hello world")
 // void test_MorseTimingMultipleWords(void) {}
 
