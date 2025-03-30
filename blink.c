@@ -25,16 +25,16 @@ void initialize_led(){
         // Release resources if there's an error
         // during intialization.
         wiringXGC();
-        //return -1; // return error for test & build_duo_test
-        exit(EXIT_FAILURE); // return error for build_duo
+        return -1; // return error for test & build_duo_test
+        // exit(EXIT_FAILURE); // return error for build_duo
     }
 
     // Verify the pin is available
     if(wiringXValidGPIO(DUO_LED) != 0) {
         printf("Invalid GPIO %d\n", DUO_LED);
         wiringXGC();
-        //return -1; // return error for test & build_duo_test
-       exit(EXIT_FAILURE); // return error for build_duo
+        return -1; // return error for test & build_duo_test
+    //    exit(EXIT_FAILURE); // return error for build_duo
     }
 
     pinMode(DUO_LED, PINMODE_OUTPUT);
@@ -55,7 +55,7 @@ void turn_off_led(){
 
 // 4.) Parse the morse string
 void morse_blink_led(char *morse_code){
-    initialize_led(); // For build_duo
+//    initialize_led(); // For build_duo
     int len = strlen(morse_code);
     for (int i = 0; i < len; i++){
         if (morse_code[i] == '.'){ // .1s delay for '.'
