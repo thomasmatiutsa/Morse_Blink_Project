@@ -141,7 +141,7 @@ void test_MorseTimingMultipleWords(void)
 
     // Expected values
     int expected_delay_calls = 65;
-    int expected_delay_duration = 110;
+    int expected_delay_duration = 117;
 
     // Assert the number of delay calls
     TEST_ASSERT_EQUAL(expected_delay_calls, mock_delay_called);

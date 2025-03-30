@@ -26,7 +26,7 @@ void initialize_led(){
         // during intialization.
         wiringXGC();
         return -1; // return error for test & build_duo_test
-        // exit(EXIT_FAILURE); // return error for build_duo
+//        exit(EXIT_FAILURE); // return error for build_duo
     }
 
     // Verify the pin is available
