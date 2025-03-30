@@ -23,4 +23,4 @@ jobs:
             run: mkdir build_host && cd build_host && cmake -DCMAKE_BUILD_TEST=TEST .. && make
 
           - name: Run test
-            run: cd build_host && ./test
+            run: ls -alh && cd build_host && ./test
