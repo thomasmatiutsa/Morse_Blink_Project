@@ -162,6 +162,7 @@ int main(void)
     RUN_TEST(test_CanHandleSpacesInWords);
     RUN_TEST(test_MixedCaseAlphanumericInput);
     RUN_TEST(test_NonRepresentableBinaryData);
+    RUN_TEST(test_MorseTimingMultipleWords);
 
 #if defined(TEST)
     RUN_TEST(test_MorseTiming);
