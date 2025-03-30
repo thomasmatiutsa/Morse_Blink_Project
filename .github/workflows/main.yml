@@ -1,0 +1,26 @@
+name: CMake CI
+
+on:
+    push:
+        branches: [ test ]
+    pull_request:
+        branches: [ main ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        
+        steps:
+          - name: Checkout Code
+            uses: actions/checkout@v3
+
+          - name: Install Dependencies
+            run: |
+                sudo apt-get update
+                sudo apt-get install -y cmake build-essential
+            
+          - name: Build project
+            run: mkdir build_host && cd build_host && cmake -DCMAKE_BUILD_TEST=TEST .. && make
+
+          - name: Run test
+            run: cd build_host && ./test
